@@ -1,0 +1,15 @@
+.routing-select{
+    display: flex;
+    gap: 20px ;
+
+}
+.reason-row{
+    display: flex;
+    justify-content:space-between;
+    border: 1px solid #d1d1d1;
+    padding: 10px;
+}
+.reason-input{
+    display: flex;
+    gap: 10px;
+}

@@ -1,0 +1,29 @@
+.frequency-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .form-text {
+    font-size: 0.9em;
+    color: #969292;
+  }
+  /* .select-container {
+    max-width: 150px;
+  } */
+
+  .selection-container {
+    /* display: flex;
+    align-items: center;
+    gap: 10px; */
+    margin-bottom: 10px;
+  }
+
+  /* .form-select, .form-control {
+    max-width: 100px;
+  } */
+
+  .date-input {
+    background-color: #e9ecef;
+   
+  }

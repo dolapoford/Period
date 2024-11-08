@@ -1,0 +1,10 @@
+.signature-box{
+    display: flex;
+    justify-content: space-between;
+}
+.verified .form-select{
+    width: 130px;
+}
+.btn-verify{
+    display: block;
+}

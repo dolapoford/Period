@@ -1,0 +1,18 @@
+
+
+.accordion-button:not(.collapsed) {
+    background-color: #fff;  /* Change background color */
+      /* Change border color */
+
+  }
+  
+  /* Style the accordion content when active (open) */
+  .accordion-collapse.show {
+    background-color: #fff;  /* Light blue background for active content */
+  
+  }
+  
+  /* Optional: Add transition for smooth effect */
+  .accordion-button, .accordion-collapse {
+    transition: all 0.3s ease;
+  }
