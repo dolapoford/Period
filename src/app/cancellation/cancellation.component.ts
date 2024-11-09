@@ -17,6 +17,11 @@ export class CancellationComponent implements OnInit {
  this.createForm()
   }
   createForm(){
+    
+    this.formGroup.addControl(
+      'signatureVerified',
+      this.fb.control('')
+    );
     this.formGroup.addControl(
       'debitAccountNumber',
       this.fb.control('')
@@ -47,5 +52,7 @@ export class CancellationComponent implements OnInit {
     );
    
   }
-
+  get signatureVerified(): FormGroup {
+    return this.formGroup.get('signatureVerified') as FormGroup;
+  }
 }

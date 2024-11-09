@@ -16,12 +16,14 @@ export class ResortComponent implements OnInit {
  this.createForm()
   }
   createForm(){
-    this.formGroup.addControl(
-      'resortDocument',
-      this.fb.control('')
-    );
-   
-    
+    if(this.formGroup){
+      this.formGroup.addControl(
+        'resortDocument',
+        this.fb.control('')
+      );
+     
+      
+    }
   }
 
 }

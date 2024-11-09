@@ -36,7 +36,7 @@
     </div>
     <div class="col-6 mb-3">
       <label for="requestType" class="form-label">Request Type</label>
-      <select class="form-select" id="requestType" aria-label="Select request type"   formControlName="requestType">
+      <select class="form-select" id="requestType" aria-label="Select request type"  formControlName="requestType">
         <option value="" selected>-- select --</option>
         <option *ngFor="let unit of requestTypeList" [value]="unit">
           {{ unit }}

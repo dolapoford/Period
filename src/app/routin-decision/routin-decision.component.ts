@@ -16,6 +16,7 @@ export class RoutinDecisionComponent implements OnInit {
  this.createForm()
   }
   createForm(){
+   if(this.formGroup){
     this.formGroup.addControl(
       'routingDecision',
       this.fb.control('')
@@ -25,6 +26,7 @@ export class RoutinDecisionComponent implements OnInit {
       this.fb.control('')
     );
    
+   }
   }
 
 }

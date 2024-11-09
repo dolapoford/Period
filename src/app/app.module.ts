@@ -7,8 +7,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { ResortComponent } from "./resort/resort.component";
 import { CancellationComponent } from './cancellation/cancellation.component';
-import { CancellationCustomerDetailComponent } from './cancellation/cancellation-customer-detail/cancellation-customer-detail.component';
-import { SignatureComponent } from './cancellation/signature/signature.component';
 import { StodetailsComponent } from './cancellation/stodetails/stodetails.component';
 import { BeneficiaryComponent } from './beneficiary/beneficiary.component';
 import { FrequencyComponent } from './frequency/frequency.component';
@@ -21,8 +19,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     ResortComponent,
     CancellationComponent,
-    CancellationCustomerDetailComponent,
-    SignatureComponent,
     StodetailsComponent,
     DocumentDetailsComponent,
     BeneficiaryComponent,

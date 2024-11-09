@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { SELECT_BUSINESS_UNITS, SELECT_PRIORITY,SELECT_REQUEST_TYPE } from '../constants';
 
@@ -9,6 +9,7 @@ import { SELECT_BUSINESS_UNITS, SELECT_PRIORITY,SELECT_REQUEST_TYPE } from '../c
 })
 export class DocumentDetailsComponent implements OnInit {
   @Input() formGroup!: FormGroup
+  @Output() requestTypeChange = new EventEmitter<string>();
   priorityList:string[] = SELECT_PRIORITY
   businessUnitList: string[] =SELECT_BUSINESS_UNITS
   requestTypeList:string[] =SELECT_REQUEST_TYPE
@@ -16,8 +17,18 @@ export class DocumentDetailsComponent implements OnInit {
    
   ngOnInit(): void {
  this.createForm()
+ this.listenToRequestTypeChange();
+  }
+  listenToRequestTypeChange() {
+    const requestTypeControl = this.formGroup?.get('requestType');
+    if (requestTypeControl) {
+      requestTypeControl.valueChanges.subscribe((value) => {
+        this.requestTypeChange.emit(value);
+      });
+    }
   }
   createForm(){
+   if(this.formGroup){
     this.formGroup.addControl(
       'docReference',
       this.fb.control('')
@@ -44,5 +55,6 @@ export class DocumentDetailsComponent implements OnInit {
       this.fb.control('')
     );
     
+   }
   }
 }

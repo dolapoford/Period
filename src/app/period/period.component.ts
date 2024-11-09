@@ -14,6 +14,7 @@ export class PeriodComponent  implements OnInit {
  this.createForm()
   }
   createForm(){
+   if(this.formGroup){
     this.formGroup.addControl(
       'asForm',
       this.fb.control('')
@@ -27,6 +28,7 @@ export class PeriodComponent  implements OnInit {
       this.fb.control('')
     );
     
+   }
   }
 
 }

@@ -1,26 +1,27 @@
-import { Component , OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup
 } from '@angular/forms';
 
-interface TableData {
-  name: string;
-  email: string;
-  selected: boolean;
-  [key: string]: string | boolean;
-}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
-  fieldsRepairForm: FormGroup= this.formBuilder.group({});;
+  fieldsRepairForm: FormGroup = this.formBuilder.group({});;
+  instructionVisisble: boolean = true;
+  resortVisible: boolean = false;
+  amendmentsVisible: boolean = false;
+  beneficiaryVisible: boolean = false;
+  frequencyVisible: boolean = false;
+  periodVisible: boolean = false;
+  routingDecisionVisible: boolean = false
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -28,14 +29,17 @@ export class AppComponent implements OnInit{
 
   createForm(): void {
     this.fieldsRepairForm = this.formBuilder.group({
-      documentForm:this.formBuilder.group({}),
+      documentForm: this.formBuilder.group({}),
       resortForm: this.formBuilder.group({}),
       amendmentForm: this.formBuilder.group({}),
       beneficiaryForm: this.formBuilder.group({}),
-      frequencyForm: this.formBuilder.group({ }),
+      frequencyForm: this.formBuilder.group({}),
       periodForm: this.formBuilder.group({}),
       routingForm: this.formBuilder.group({})
     });
+  }
+  get requestType() {
+    return this.documentForm?.get('requestType')
   }
   get documentForm(): FormGroup {
     return this.fieldsRepairForm.get('documentForm') as FormGroup;
@@ -58,12 +62,22 @@ export class AppComponent implements OnInit{
   get frequencyForm(): FormGroup {
     return this.fieldsRepairForm.get('frequencyForm') as FormGroup;
   }
+  onRequestTypeChange(value: string) {
+    if (value == 'Resort') {
+      this.resortVisible = true
+      this.amendmentsVisible = false;
+      this.beneficiaryVisible = false;
+      this.frequencyVisible = false;
+      this.periodVisible = false;
+      this.routingDecisionVisible = false
+    }
+  }
   onSubmit(): void {
     if (this.fieldsRepairForm.valid) {
-      console.log('Form submitted successfully:', this.fieldsRepairForm.value);
+      console.log(this.requestType?.value)
     } else {
       console.log('Form is invalid');
       this.fieldsRepairForm.markAllAsTouched();
     }
   }
- }
+}
