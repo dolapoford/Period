@@ -11,10 +11,33 @@ import { AccountDetails } from './stodetails/stodetails.component';
 export class CancellationComponent implements OnInit {
   @Input() formGroup!: FormGroup
   stoOptionList:string[] =SELECT_STO_OPTIONS
+  detailVisible:boolean=false
+  otherFormControlVisible:boolean=false
+  accountData: AccountDetails = {
+    debitAccountNumber: '000044556677',
+    debitAccountTitle: 'Ms. Eila Fitz',
+    currency: 'MUR',
+    amount: 2000.00,
+    standingOrderNumber: 2,
+    frequency: 'Monthly on Day 1',
+    startDate: '20240801',
+    endDate: '20241231',
+    beneficiaryAccountNumber: '000044889900',
+    beneficiaryAccountTitle: 'Ms. Eila Fitz',
+    beneficiaryBank: 'The Mauritius Commercial Bank Ltd',
+    paymentDetails: '2998'
+  };
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
  this.createForm()
+  }
+  showDtails(){
+    if(this.formGroup.get('sendSTO')?.value){
+      this.detailVisible=true
+    }else{
+      this.detailVisible=false
+    }
   }
   createForm(){
     
@@ -52,22 +75,25 @@ export class CancellationComponent implements OnInit {
     );
    
   }
+  onDebitAccountBlur() {
+    const accountNumber = this.formGroup.get('debitAccountNumber')?.value;
+    if(accountNumber){
+      this.otherFormControlVisible=true 
+    this.formGroup?.patchValue({
+      sendSTO: "123443948",
+      customerDetail: "odofin Oyejide",
+      debitAccountTitle: "Mcb Limited",
+    })
+    }else{
+      this.otherFormControlVisible=false 
+      this.formGroup?.reset()
+    }
+   
+  
+  }
   get signatureVerified(): FormGroup {
     return this.formGroup.get('signatureVerified') as FormGroup;
   }
 
-  accountData: AccountDetails = {
-    debitAccountNumber: '000044556677',
-    debitAccountTitle: 'Ms. Eila Fitz',
-    currency: 'MUR',
-    amount: 2000.00,
-    standingOrderNumber: 2,
-    frequency: 'Monthly on Day 1',
-    startDate: '20240801',
-    endDate: '20241231',
-    beneficiaryAccountNumber: '000044889900',
-    beneficiaryAccountTitle: 'Ms. Eila Fitz',
-    beneficiaryBank: 'The Mauritius Commercial Bank Ltd',
-    paymentDetails: '2998'
-  };
+ 
 }
