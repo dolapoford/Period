@@ -1,10 +1,7 @@
 import { Component , OnInit } from '@angular/core';
 import {
-  AbstractControl,
-  FormArray,
   FormBuilder,
-  FormGroup,
-  Validators,
+  FormGroup
 } from '@angular/forms';
 
 interface TableData {
@@ -21,7 +18,7 @@ interface TableData {
 })
 export class AppComponent implements OnInit{
 
-  fieldsRepairForm!: FormGroup;
+  fieldsRepairForm: FormGroup= this.formBuilder.group({});;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -31,50 +28,32 @@ export class AppComponent implements OnInit{
 
   createForm(): void {
     this.fieldsRepairForm = this.formBuilder.group({
-      documentForm: this.formBuilder.group({
-        docReference: ['', Validators.required],
-        dcpRef: ['', Validators.required],
-        createdDate: ['', Validators.required],
-        businessUnit: [''],
-        priority: [''],
-        requestType: ['']
-      }),
-      resortForm: this.formBuilder.group({
-        resortDocument: ['']
-      }),
-      amendmentForm: this.formBuilder.group({
-        debitAccountNumber: ['', Validators.required],
-        debitAccountTitle: ['', Validators.required],
-        customerDetail: ['', Validators.required],
-        sendSTO: [''],
-        signatureVerified: ['']
-      }),
-      beneficiaryForm: this.formBuilder.group({
-        creditBank: [''],
-        creditAccountNumber: ['', Validators.required],
-        accountName: ['', Validators.required],
-        reference: ['', Validators.required],
-        purposeCode: [''],
-        transferCurrency: [''],
-        amount: ['']
-      }),
-      frequencyForm: this.formBuilder.group({
-        optionWeekly: [''],
-        onTheSelect: [''],
-        dateInput: ['', Validators.required],
-        ofeverySelect: ['']
-      }),
-      periodForm: this.formBuilder.group({
-        asForm: ['', Validators.required],
-        lastPayment: ['', Validators.required]
-      }),
-      routingForm: this.formBuilder.group({
-        routingDecision: [''],
-        rejectionNote: ['', Validators.required]
-      })
+      resortForm: this.formBuilder.group({}),
+      amendmentForm: this.formBuilder.group({}),
+      beneficiaryForm: this.formBuilder.group({}),
+      frequencyForm: this.formBuilder.group({ }),
+      periodForm: this.formBuilder.group({}),
+      routingForm: this.formBuilder.group({})
     });
   }
-
+  get periodForm(): FormGroup {
+    return this.fieldsRepairForm.get('periodForm') as FormGroup;
+  }
+  get resortForm(): FormGroup {
+    return this.fieldsRepairForm.get('periodForm') as FormGroup;
+  }
+  get amendmentForm(): FormGroup {
+    return this.fieldsRepairForm.get('amendmentForm') as FormGroup;
+  }
+  get beneficiaryForm(): FormGroup {
+    return this.fieldsRepairForm.get('beneficiaryForm') as FormGroup;
+  }
+  get routingForm(): FormGroup {
+    return this.fieldsRepairForm.get('routingForm') as FormGroup;
+  }
+  get frequencyForm(): FormGroup {
+    return this.fieldsRepairForm.get('frequencyForm') as FormGroup;
+  }
   onSubmit(): void {
     if (this.fieldsRepairForm.valid) {
       console.log('Form submitted successfully:', this.fieldsRepairForm.value);
