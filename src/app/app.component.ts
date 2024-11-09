@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   frequencyVisible: boolean = false;
   periodVisible: boolean = false;
   routingDecisionVisible: boolean = false
+  supportingDocumentVisible: boolean = false
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -70,6 +71,7 @@ export class AppComponent implements OnInit {
       this.frequencyVisible = false;
       this.periodVisible = false;
       this.routingDecisionVisible = false
+      this.supportingDocumentVisible=false;
     }else if(value == 'Ammendment'){
       this.resortVisible = false
       this.amendmentsVisible=true;
@@ -77,6 +79,7 @@ export class AppComponent implements OnInit {
       this.frequencyVisible = false;
       this.periodVisible = false;
       this.routingDecisionVisible = false
+      this.supportingDocumentVisible=false;
     } else if(value == 'Setup'){
       this.resortVisible = true
       this.amendmentsVisible=true;
@@ -84,6 +87,7 @@ export class AppComponent implements OnInit {
       this.frequencyVisible = true;
       this.periodVisible = true;
       this.routingDecisionVisible = true
+      this.supportingDocumentVisible=true;
     }
   }
   onSubmit(): void {
