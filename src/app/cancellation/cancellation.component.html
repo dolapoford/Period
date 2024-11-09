@@ -1,7 +1,7 @@
 <div>
-    <form action="">
-        <h6>Remitter</h6>
-        <div class="row">
+    
+        <!-- <h6>Remitter</h6> -->
+        <!-- <div class="row">
             <div class="col-6 mb-5">
                 <h6><label for="requestType" class="form-label">Debit Account Number*</label></h6>
                 <input type="text" class="form-control" id="accountNumber" placeholder="account number">
@@ -12,21 +12,21 @@
                     Cancel Standing Order
                 </label>
             </div>
-        </div>
+        </div> -->
         <div>
             <app-cancellation-customer-detail></app-cancellation-customer-detail>
         </div>
         <div>
-            <app-stodetails></app-stodetails>
+            <app-stodetails [isVisible]="true"></app-stodetails>
         </div>
         <div class="mb-5">
             <app-signature></app-signature>
         </div>
         <div class=" form-check col-12 mb-5">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="cancelStandingOrder">
             <label class="form-check-label" for="flexCheckDefault">
                 Cancel Standing Order
             </label>
         </div>
-    </form>
+   
 </div>

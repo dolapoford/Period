@@ -16,3 +16,12 @@
   .accordion-button, .accordion-collapse {
     transition: all 0.3s ease;
   }
+  .footer-style {
+    background-color: #FFB90B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    gap: 10px;
+  }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 
 @Component({
   selector: 'app-stodetails',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './stodetails.component.css'
 })
 export class StodetailsComponent {
+ 
+  @Input() data :any;
+  @Input() isVisible :boolean= false;
+  
 
 }

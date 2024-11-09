@@ -14,6 +14,7 @@ import { BeneficiaryComponent } from './beneficiary/beneficiary.component';
 import { FrequencyComponent } from './frequency/frequency.component';
 import { PeriodComponent } from './period/period.component';
 import { RoutinDecisionComponent } from './routin-decision/routin-decision.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { RoutinDecisionComponent } from './routin-decision/routin-decision.compo
     AppRoutingModule,
     NgxPaginationModule,
     FormsModule,
+    ReactiveFormsModule
    
 ],
   providers: [],

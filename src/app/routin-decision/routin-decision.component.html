@@ -49,13 +49,12 @@
 </div> -->
 
 
-<form action="">
     <div class="row">
         <div class="col-12 mb-3">
               <label for="requestType" class="form-label">Select routing decision:</label>
               <div class="row">
                 <div class="col-9">
-                    <select id="routingDecision" class="form-select mr-3">
+                    <select id="routingDecision" class="form-select mr-3" formControlName="routingDecision">
                         <option value="">-- select reason --</option>
                         <option>AML / Fraud Prevention</option>
                         <option>Account - inactive</option>
@@ -73,8 +72,8 @@
                 <div class="col-12 reason-row">
                     <span class="reason-text">AML / Fraud Prevention</span>
                     <div class="reason-input">
-                        <input type="checkbox" id="front2" class="mr-1"><label for="front2" class="checkbox-label">front</label>
-                        <input type="checkbox" id="back2" class="mr-1"><label for="back2" class="checkbox-label">back</label>
+                        <input type="checkbox" id="front2" class="mr-1" formControlName="fraudPreventionFront"><label for="front2" class="checkbox-label">front</label>
+                        <input type="checkbox" id="back2" class="mr-1" formControlName="fraudPreventionBack"><label for="back2" class="checkbox-label">back</label>
                         <i class="bi bi-trash" style="color: red"></i>
                         
                     </div>
@@ -87,8 +86,8 @@
                 <div class="col-12 reason-row">
                     <span class="reason-text">Account - inactive</span>
                     <div class="reason-input">
-                        <input type="checkbox" id="front2" class="mr-1"><label for="front2" class="checkbox-label">front</label>
-                        <input type="checkbox" id="back2" class="mr-1"><label for="back2" class="checkbox-label">back</label>
+                        <input type="checkbox" id="front2" class="mr-1" formControlName="accountInactiveFront"><label for="front2" class="checkbox-label">front</label>
+                        <input type="checkbox" id="back2" class="mr-1" formControlName="accountInactiveBack"><label for="back2" class="checkbox-label">back</label>
                         <i class="bi bi-trash" style="color: red"></i>
                     </div>
                 </div>
@@ -100,8 +99,8 @@
                 <div class="col-12 reason-row">
                     <span class="reason-text">Beneficiary Account no. missing</span>
                     <div class="reason-input">
-                        <input type="checkbox" id="front2" class="mr-1"><label for="front2" class="checkbox-label">front</label>
-                        <input type="checkbox" id="back2" class="mr-1"><label for="back2" class="checkbox-label">back</label>
+                        <input type="checkbox" id="front2" class="mr-1" formControlName="accountMissingFront"><label for="front2" class="checkbox-label">front</label>
+                        <input type="checkbox" id="back2" class="mr-1" formControlName="accountMissingBack"><label for="back2" class="checkbox-label">back</label>
                         <i class="bi bi-trash" style="color: red"></i>
                     </div>
                 </div>
@@ -110,7 +109,6 @@
       
         <div class="col-12 mt-3">
             <label for="rejectionNote" class="form-label">Rejection note:</label>
-            <textarea id="rejectionNote" rows="3" class="form-control rejection-note"></textarea>
+            <textarea id="rejectionNote" rows="3" class="form-control rejection-note" formControlName="rejectionNote"></textarea>
         </div>
     </div>
-</form>

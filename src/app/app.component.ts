@@ -1,4 +1,11 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
+import {
+  AbstractControl,
+  FormArray,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 interface TableData {
   name: string;
@@ -12,45 +19,68 @@ interface TableData {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  data: TableData[] = [
-    { name: 'Alice', email: 'alice@example.com', selected: false },
-    { name: 'Bob', email: 'bob@example.com', selected: false },
-    { name: 'Charlie', email: 'charlie@example.com', selected: false },
-    // Add more data as needed
-  ];
+export class AppComponent implements OnInit{
 
-  sortColumn: string = '';
-  sortDirection: 'asc' | 'desc' = 'asc';
-  page: number = 1;
+  fieldsRepairForm!: FormGroup;
 
-  toggleSelectAll(event: any): void {
-    const isChecked = event.target.checked;
-    this.data.forEach((item) => (item.selected = isChecked));
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.createForm();
   }
 
-  onCheckboxChange(item: TableData): void {
-    item.selected = !item.selected;
-  }
-
-  sortTable(column: string): void {
-    if (this.sortColumn === column) {
-      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-    } else {
-      this.sortColumn = column;
-      this.sortDirection = 'asc';
-    }
-  }
-
-  getSortedData(): TableData[] {
-    return this.data.sort((a, b) => {
-      const valueA = a[this.sortColumn as keyof TableData] as string;
-      const valueB = b[this.sortColumn as keyof TableData] as string;
-  
-      if (valueA < valueB) return this.sortDirection === 'asc' ? -1 : 1;
-      if (valueA > valueB) return this.sortDirection === 'asc' ? 1 : -1;
-      return 0;
+  createForm(): void {
+    this.fieldsRepairForm = this.formBuilder.group({
+      documentForm: this.formBuilder.group({
+        docReference: ['', Validators.required],
+        dcpRef: ['', Validators.required],
+        createdDate: ['', Validators.required],
+        businessUnit: [''],
+        priority: [''],
+        requestType: ['']
+      }),
+      resortForm: this.formBuilder.group({
+        resortDocument: ['']
+      }),
+      amendmentForm: this.formBuilder.group({
+        debitAccountNumber: ['', Validators.required],
+        debitAccountTitle: ['', Validators.required],
+        customerDetail: ['', Validators.required],
+        sendSTO: [''],
+        signatureVerified: ['']
+      }),
+      beneficiaryForm: this.formBuilder.group({
+        creditBank: [''],
+        creditAccountNumber: ['', Validators.required],
+        accountName: ['', Validators.required],
+        reference: ['', Validators.required],
+        purposeCode: [''],
+        transferCurrency: [''],
+        amount: ['']
+      }),
+      frequencyForm: this.formBuilder.group({
+        optionWeekly: [''],
+        onTheSelect: [''],
+        dateInput: ['', Validators.required],
+        ofeverySelect: ['']
+      }),
+      periodForm: this.formBuilder.group({
+        asForm: ['', Validators.required],
+        lastPayment: ['', Validators.required]
+      }),
+      routingForm: this.formBuilder.group({
+        routingDecision: [''],
+        rejectionNote: ['', Validators.required]
+      })
     });
   }
-  
-}
+
+  onSubmit(): void {
+    if (this.fieldsRepairForm.valid) {
+      console.log('Form submitted successfully:', this.fieldsRepairForm.value);
+    } else {
+      console.log('Form is invalid');
+      this.fieldsRepairForm.markAllAsTouched();
+    }
+  }
+ }
