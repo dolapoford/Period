@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { SELECT_STO_OPTIONS } from '../constants';
-
+import { AccountDetails } from './stodetails/stodetails.component';
 
 @Component({
   selector: 'app-cancellation',
@@ -55,4 +55,19 @@ export class CancellationComponent implements OnInit {
   get signatureVerified(): FormGroup {
     return this.formGroup.get('signatureVerified') as FormGroup;
   }
+
+  accountData: AccountDetails = {
+    debitAccountNumber: '000044556677',
+    debitAccountTitle: 'Ms. Eila Fitz',
+    currency: 'MUR',
+    amount: 2000.00,
+    standingOrderNumber: 2,
+    frequency: 'Monthly on Day 1',
+    startDate: '20240801',
+    endDate: '20241231',
+    beneficiaryAccountNumber: '000044889900',
+    beneficiaryAccountTitle: 'Ms. Eila Fitz',
+    beneficiaryBank: 'The Mauritius Commercial Bank Ltd',
+    paymentDetails: '2998'
+  };
 }

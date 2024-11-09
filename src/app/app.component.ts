@@ -70,6 +70,20 @@ export class AppComponent implements OnInit {
       this.frequencyVisible = false;
       this.periodVisible = false;
       this.routingDecisionVisible = false
+    }else if(value == 'Ammendment'){
+      this.resortVisible = false
+      this.amendmentsVisible=true;
+      this.beneficiaryVisible = false;
+      this.frequencyVisible = false;
+      this.periodVisible = false;
+      this.routingDecisionVisible = false
+    } else if(value == 'Setup'){
+      this.resortVisible = false
+      this.amendmentsVisible=false;
+      this.beneficiaryVisible = true;
+      this.frequencyVisible = true;
+      this.periodVisible = true;
+      this.routingDecisionVisible = true
     }
   }
   onSubmit(): void {

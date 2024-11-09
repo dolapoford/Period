@@ -1,4 +1,4 @@
-<div class="row" *ngIf="isVisible">
+<!-- <div class="row" *ngIf="isVisible">
     <div class="col-6">
         <label for="requestType" class="form-label">Debit account number </label>
         <p>000044556677</p>
@@ -54,4 +54,55 @@
         <label for="requestType" class="form-label">Payment details</label>
         <p>2998</p>
     </div>
-</div>
+</div> -->
+<div class="row" *ngIf="isVisible && data">
+    <div class="col-6">
+      <label for="debitAccountNumber" class="form-label">Debit account number</label>
+      <p>{{ data.debitAccountNumber }}</p>
+    </div>
+    <div class="col-6">
+      <label for="debitAccountTitle" class="form-label">Debit account title</label>
+      <p>{{ data.debitAccountTitle }}</p>
+    </div>
+    <div class="col-6">
+      <label for="currency" class="form-label">Currency</label>
+      <p>{{ data.currency }}</p>
+    </div>
+    <div class="col-6">
+      <label for="amount" class="form-label">Amount</label>
+      <p>{{ data.amount }}</p>
+    </div>
+    <div class="col-6">
+      <label for="standingOrderNumber" class="form-label">Standing Order Number</label>
+      <p>{{ data.standingOrderNumber }}</p>
+    </div>
+    <div class="col-6">
+      <label for="frequency" class="form-label">Frequency</label>
+      <p>{{ data.frequency }}</p>
+    </div>
+    <div class="col-6">
+      <label for="startDate" class="form-label">Start date</label>
+      <p>{{ data.startDate }}</p>
+    </div>
+    <div class="col-6">
+      <label for="endDate" class="form-label">End Date</label>
+      <p>{{ data.endDate }}</p>
+    </div>
+    <div class="col-6">
+      <label for="beneficiaryAccountNumber" class="form-label">Beneficiary account number</label>
+      <p>{{ data.beneficiaryAccountNumber }}</p>
+    </div>
+    <div class="col-6">
+      <label for="beneficiaryAccountTitle" class="form-label">Beneficiary account title</label>
+      <p>{{ data.beneficiaryAccountTitle }}</p>
+    </div>
+    <div class="col-6">
+      <label for="beneficiaryBank" class="form-label">Beneficiary bank</label>
+      <p>{{ data.beneficiaryBank }}</p>
+    </div>
+    <div class="col-6">
+      <label for="paymentDetails" class="form-label">Payment details</label>
+      <p>{{ data.paymentDetails }}</p>
+    </div>
+  </div>
+  
