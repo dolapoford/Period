@@ -13,29 +13,34 @@
     </div>
     <div class="col-12 mb-3">
       <label for="businessUnit" class="form-label">Business Unit</label>
-      <select class="form-select" id="businessUnit" aria-label="Select business unit"   formControlName="businessUnit">
-        <option value="" selected>Choose a business unit</option>
-        <option value="1">Unit One</option>
-        <option value="2">Unit Two</option>
-        <option value="3">Unit Three</option>
-      </select>
+      <select
+      class="form-select"
+      id="businessUnit"
+      aria-label="Select business unit"
+      formControlName="businessUnit"
+    >
+      <option value="" selected>Choose a business unit</option>
+      <option *ngFor="let unit of businessUnitList" [value]="unit">
+        {{ unit }}
+      </option>
+    </select>
     </div>
     <div class="col-6 mb-3">
       <label for="priority" class="form-label">Priority</label>
       <select class="form-select" id="priority" aria-label="Select priority"   formControlName="priority">
         <option value="" selected>Choose priority level</option>
-        <option value="1">High</option>
-        <option value="2">Medium</option>
-        <option value="3">Low</option>
+        <option *ngFor="let unit of priorityList" [value]="unit">
+          {{ unit }}
+        </option>
       </select>
     </div>
     <div class="col-6 mb-3">
       <label for="requestType" class="form-label">Request Type</label>
       <select class="form-select" id="requestType" aria-label="Select request type"   formControlName="requestType">
         <option value="" selected>-- select --</option>
-        <option value="1">Type One</option>
-        <option value="2">Type Two</option>
-        <option value="3">Type Three</option>
+        <option *ngFor="let unit of requestTypeList" [value]="unit">
+          {{ unit }}
+        </option>
       </select>
     </div>
   </div>

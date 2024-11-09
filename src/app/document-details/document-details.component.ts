@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SELECT_BUSINESS_UNITS, SELECT_PRIORITY,SELECT_REQUEST_TYPE } from '../constants';
 
 @Component({
   selector: 'app-document-details',
@@ -8,8 +9,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class DocumentDetailsComponent implements OnInit {
   @Input() formGroup!: FormGroup
+  priorityList:string[] = SELECT_PRIORITY
+  businessUnitList: string[] =SELECT_BUSINESS_UNITS
+  requestTypeList:string[] =SELECT_REQUEST_TYPE
   constructor(private fb: FormBuilder) {}
-
+   
   ngOnInit(): void {
  this.createForm()
   }
