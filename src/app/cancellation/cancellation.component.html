@@ -1,81 +1,74 @@
 <div>
-        <!-- <h6>Remitter</h6> -->
-        <!-- <div class="row">
-            <div class="col-6 mb-5">
-                <h6><label for="requestType" class="form-label">Debit Account Number*</label></h6>
-                <input type="text" class="form-control" id="accountNumber" placeholder="account number">
-            </div>
-            <div class=" form-check col-12 mb-5">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Cancel Standing Order
-                </label>
-            </div>
-        </div> -->
+
     <h6>Remitter</h6>
-    <div class="row"  [formGroup]="formGroup">
+    <div class="row" [formGroup]="formGroup">
         <div class="col-6 mb-3">
             <h6><label for="requestType" class="form-label">Debit Account Number*</label></h6>
-            <input type="text" class="form-control" id="debitAccountNumber" placeholder="account number"   formControlName="debitAccountNumber">
+            <input type="text" class="form-control" id="debitAccountNumber" placeholder="account number"
+                formControlName="debitAccountNumber" (blur)="onDebitAccountBlur()">
         </div>
 
-        <div class="col-6 mb-3">
+        <div class="col-6 mb-3" *ngIf="otherFormControlVisible">
             <h6><label for="requestType" class="form-label">Debit Account Title</label></h6>
-            <input type="text" class="form-control" id="debitAccountTitle" placeholder="account title" formControlName="debitAccountTitle">
+            <input type="text" class="form-control" id="debitAccountTitle" placeholder="account title"
+                formControlName="debitAccountTitle">
         </div>
 
-        <div class="col-12 mb-3">
+        <div class="col-12 mb-3" *ngIf="otherFormControlVisible">
             <h6><label for="requestType" class="form-label">Customer Details</label></h6>
-            <input type="text" class="form-control" id="customerDetail" placeholder="account title" formControlName="customerDetail">
+            <input type="text" class="form-control" id="customerDetail" placeholder="account title"
+                formControlName="customerDetail">
         </div>
 
-        <div class="col-12 mb-3">
+        <div class="col-12 mb-3" *ngIf="otherFormControlVisible">
             <div class="row">
                 <div class="col-9">
                     <label for="requestType" class="form-label">Send STO to cancel:</label>
                     <select class="form-select" id="sendSTO" aria-label="Select request type" formControlName="sendSTO">
                         <option value="" selected>-- select --</option>
-                        <option *ngFor="let unit of stoOptionList"  [value]="unit">
+                        <option *ngFor="let unit of stoOptionList" [value]="unit">
                             {{unit}}
                         </option>
-                       
+
                     </select>
                 </div>
                 <div class="col-3  btn-mar">
-                    <button type="button" class="btn btn-secondary">View STO</button>
+                    <button type="button" class="btn btn-secondary" (click)="showDtails()">View STO</button>
                 </div>
 
             </div>
 
         </div>
-  
+
 
         <div class="col-12">
-            <app-stodetails [isVisible]="true" [data]="accountData"></app-stodetails>
+            <app-stodetails [isVisible]="detailVisible" [data]="accountData"></app-stodetails>
         </div>
-        <div class="mb-5 col-12">
+        <div class="mb-5 col-12" *ngIf="otherFormControlVisible">
             <div class="row">
                 <div class="col-12">
                     <div class="signature-box">
                         <div class="btn-verify ">
-                            <div  class="form-label">Retrieve Signature </div>
+                            <div class="form-label">Retrieve Signature </div>
                             <button type="button" class="btn btn-secondary">Verify Signature</button>
-                            <img src="../../assets/signature.png" alt="" >
+                            <img src="../../assets/signature.png" alt="">
                         </div>
                         <div class="verified">
                             <label for="signatureVerified" class="form-label">Signature Verified</label>
-                            <select class="form-select" id="signatureVerified" aria-label="Select request type" formControlName="signatureVerified">
-                              <option value="" selected>-- --</option>
-                              <option value="1"> Yes</option>
-                              <option value="2"> No</option>
+                            <select class="form-select" id="signatureVerified" aria-label="Select request type"
+                                formControlName="signatureVerified">
+                                <option value="" selected>-- --</option>
+                                <option value="1"> Yes</option>
+                                <option value="2"> No</option>
                             </select>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class=" form-check col-12 mb-5">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="cancelStandingOrder">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                formControlName="cancelStandingOrder">
             <label class="form-check-label" for="flexCheckDefault">
                 Cancel Standing Order
             </label>
