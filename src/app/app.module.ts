@@ -14,6 +14,7 @@ import { BeneficiaryComponent } from './beneficiary/beneficiary.component';
 import { FrequencyComponent } from './frequency/frequency.component';
 import { PeriodComponent } from './period/period.component';
 import { RoutinDecisionComponent } from './routin-decision/routin-decision.component';
+import { DocumentDetailsComponent } from './document-details/document-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CancellationCustomerDetailComponent,
     SignatureComponent,
     StodetailsComponent,
+    DocumentDetailsComponent,
     BeneficiaryComponent,
     FrequencyComponent,
     PeriodComponent,

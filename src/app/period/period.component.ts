@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-period',
-  templateUrl: './period.component.html',
+  templateUrl: './period.component.html',  
   styleUrl: './period.component.css'
 })
 export class PeriodComponent  implements OnInit {

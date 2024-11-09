@@ -1,7 +1,7 @@
 <div>
   <form  [formGroup]="fieldsRepairForm" (ngSubmit)="onSubmit()">
     <div class="accordion" id="accordionPanelsStayOpenExample">
-      <div class="accordion-item mb-3"  formGroupName="documentForm">
+      <div class="accordion-item mb-3"  >
         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
           <button class="accordion-button" type="button" data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
@@ -13,53 +13,12 @@
           aria-labelledby="panelsStayOpen-headingOne">
           <div class="accordion-body">
 
-            <div class="row">
-              <div class="col-4 mb-3">
-                <label for="docReference" class="form-label">Doc. Reference</label>
-                <input type="text" class="form-control" id="docReference"   formControlName="docReference">
-              </div>
-              <div class="col-4 mb-3">
-                <label for="dcpRef" class="form-label">DCP. Ref</label>
-                <input type="text" class="form-control" id="dcpRef"    formControlName="dcpRef">
-              </div>
-              <div class="col-4 mb-3">
-                <label for="createdDate" class="form-label">Created</label>
-                <input type="text" class="form-control" id="createdDate"    formControlName="createdDate">
-              </div>
-              <div class="col-12 mb-3">
-                <label for="businessUnit" class="form-label">Business Unit</label>
-                <select class="form-select" id="businessUnit" aria-label="Select business unit"   formControlName="businessUnit">
-                  <option value="" selected>Choose a business unit</option>
-                  <option value="1">Unit One</option>
-                  <option value="2">Unit Two</option>
-                  <option value="3">Unit Three</option>
-                </select>
-              </div>
-              <div class="col-6 mb-3">
-                <label for="priority" class="form-label">Priority</label>
-                <select class="form-select" id="priority" aria-label="Select priority"   formControlName="priority">
-                  <option value="" selected>Choose priority level</option>
-                  <option value="1">High</option>
-                  <option value="2">Medium</option>
-                  <option value="3">Low</option>
-                </select>
-              </div>
-              <div class="col-6 mb-3">
-                <label for="requestType" class="form-label">Request Type</label>
-                <select class="form-select" id="requestType" aria-label="Select request type"   formControlName="requestType">
-                  <option value="" selected>-- select --</option>
-                  <option value="1">Type One</option>
-                  <option value="2">Type Two</option>
-                  <option value="3">Type Three</option>
-                </select>
-              </div>
-            </div>
-
+           <app-document-details [formGroup]="documentForm"></app-document-details>
           </div>
         </div>
       </div>
 
-      <div class="accordion-item mb-3" formGroupName="resortForm">
+      <div class="accordion-item mb-3" >
         <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
@@ -70,12 +29,12 @@
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
           aria-labelledby="panelsStayOpen-headingTwo">
           <div class="accordion-body">
-            <app-resort></app-resort>
+            <app-resort [formGroup]="resortForm"></app-resort>
           </div>
         </div>
       </div>
 
-      <div class="accordion-item mb-3"  formGroupName="amendmentForm">
+      <div class="accordion-item mb-3"  >
         <h2 class="accordion-header" id="panelsStayOpen-headingThree">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
@@ -86,12 +45,12 @@
         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
           aria-labelledby="panelsStayOpen-headingThree">
           <div class="accordion-body">
-            <app-cancellation></app-cancellation>
+            <app-cancellation [formGroup]="amendmentForm"></app-cancellation>
           </div>
         </div>
       </div>
 
-      <div class="accordion-item mb-3"  formGroupName="beneficiaryForm">
+      <div class="accordion-item mb-3"  >
         <h2 class="accordion-header" id="panelsStayOpen-headingFour" >
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
@@ -102,12 +61,12 @@
         <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
           aria-labelledby="panelsStayOpen-headingFour">
           <div class="accordion-body">
-            <app-beneficiary></app-beneficiary>
+            <app-beneficiary [formGroup]="beneficiaryForm"></app-beneficiary>
           </div>
         </div>
       </div>
 
-      <div class="accordion-item mb-3"  formGroupName="frequencyForm">
+      <div class="accordion-item mb-3"  >
         <h2 class="accordion-header" id="panelsStayOpen-headingFive">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
@@ -118,13 +77,13 @@
         <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
           aria-labelledby="panelsStayOpen-collapseFive">
           <div class="accordion-body">
-            <app-frequency></app-frequency>
+            <app-frequency  [formGroup]="frequencyForm"></app-frequency>
           </div>
         </div>
       </div>
 
 
-      <div class="accordion-item mb-3"  formGroupName="periodForm">
+      <div class="accordion-item mb-3"  >
         <h2 class="accordion-header" id="panelsStayOpen-headingSix">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false"
@@ -142,7 +101,7 @@
 
 
 
-      <div class="accordion-item mb-1"  formGroupName="routingForm">
+      <div class="accordion-item mb-1"  >
         <h2 class="accordion-header" id="panelsStayOpen-headingSeven">
           <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false"
@@ -153,7 +112,7 @@
         <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse"
           aria-labelledby="panelsStayOpen-headingSeven">
           <div class="accordion-body">
-            <app-routin-decision></app-routin-decision>
+            <app-routin-decision [formGroup]="routingForm"></app-routin-decision>
           </div>
         </div>
       </div>

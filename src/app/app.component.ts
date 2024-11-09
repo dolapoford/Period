@@ -28,6 +28,7 @@ export class AppComponent implements OnInit{
 
   createForm(): void {
     this.fieldsRepairForm = this.formBuilder.group({
+      documentForm:this.formBuilder.group({}),
       resortForm: this.formBuilder.group({}),
       amendmentForm: this.formBuilder.group({}),
       beneficiaryForm: this.formBuilder.group({}),
@@ -36,11 +37,14 @@ export class AppComponent implements OnInit{
       routingForm: this.formBuilder.group({})
     });
   }
+  get documentForm(): FormGroup {
+    return this.fieldsRepairForm.get('documentForm') as FormGroup;
+  }
   get periodForm(): FormGroup {
     return this.fieldsRepairForm.get('periodForm') as FormGroup;
   }
   get resortForm(): FormGroup {
-    return this.fieldsRepairForm.get('periodForm') as FormGroup;
+    return this.fieldsRepairForm.get('resortForm') as FormGroup;
   }
   get amendmentForm(): FormGroup {
     return this.fieldsRepairForm.get('amendmentForm') as FormGroup;

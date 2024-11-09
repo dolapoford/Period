@@ -1,13 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-
 @Component({
-  selector: 'app-cancellation',
-  templateUrl: './cancellation.component.html',
-  styleUrl: './cancellation.component.css'
+  selector: 'app-document-details',
+  templateUrl: './document-details.component.html',
+  styleUrl: './document-details.component.css'
 })
-export class CancellationComponent implements OnInit {
+export class DocumentDetailsComponent implements OnInit {
   @Input() formGroup!: FormGroup
   constructor(private fb: FormBuilder) {}
 
@@ -16,29 +15,30 @@ export class CancellationComponent implements OnInit {
   }
   createForm(){
     this.formGroup.addControl(
-      'debitAccountNumber',
+      'docReference',
       this.fb.control('')
     );
     this.formGroup.addControl(
-      'debitAccountTitle',
+      'dcpRef',
+      this.fb.control('')
+    );
+    this.formGroup.addControl(
+      'createdDate',
+      this.fb.control('')
+    );
+    this.formGroup.addControl(
+      'businessUnit',
+      this.fb.control('')
+    );
+    this.formGroup.addControl(
+      'priority',
       this.fb.control('')
     );
 
     this.formGroup.addControl(
-      'customerDetail',
+      'requestType',
       this.fb.control('')
     );
-
-    this.formGroup.addControl(
-      'sendSTO',
-      this.fb.control('')
-    );
-   
-    this.formGroup.addControl(
-      'signatureVerified',
-      this.fb.control('')
-    );
-   
+    
   }
-
 }
