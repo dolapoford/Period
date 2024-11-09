@@ -81,8 +81,8 @@ export class AppComponent implements OnInit {
       this.routingDecisionVisible = false
       this.supportingDocumentVisible=false;
     } else if(value == 'Setup'){
-      this.resortVisible = false
-      this.amendmentsVisible=false;
+      this.resortVisible = true
+      this.amendmentsVisible=true;
       this.beneficiaryVisible = true;
       this.frequencyVisible = true;
       this.periodVisible = true;
