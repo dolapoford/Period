@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SELECT_REASON_OPTION } from '../constants';
 
 @Component({
   selector: 'app-routin-decision',
@@ -8,6 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class RoutinDecisionComponent implements OnInit {
   @Input() formGroup!: FormGroup
+  reasonOptionList:string[] =SELECT_REASON_OPTION
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {

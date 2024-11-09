@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SELECT_RESORT_OPTIONS } from '../constants';
 
 @Component({
   selector: 'app-resort',
@@ -8,6 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ResortComponent implements OnInit {
   @Input() formGroup!: FormGroup
+  resortList:string[]= SELECT_RESORT_OPTIONS
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {

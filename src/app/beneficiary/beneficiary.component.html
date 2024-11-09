@@ -6,9 +6,8 @@
             <label for="creditBank" class="form-label">Credit Bank</label>
             <select id="creditBank" class="form-select"   formControlName="creditBank">
               <option selected>--select--</option>
-              <option value="1">Bank 1</option>
-              <option value="2">Bank 2</option>
-              <option value="3">Bank 3</option>
+              <option *ngFor="let unit of creditBankList" [value]="unit">{{unit}}</option>
+             
             </select>
           </div>
           <div class="col-md-6">
@@ -35,10 +34,7 @@
           <div class="col-md-12">
             <label for="purposeCode" class="form-label">Purpose Code</label>
             <select id="purposeCode" class="form-select"   formControlName="purposeCode">
-              <option selected>00-CONTRA</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
+              <option *ngFor="let unit of purposeCodeList" [value]="unit">{{unit}}</option>
             </select>
           </div>
         </div>
@@ -48,9 +44,7 @@
             <label for="currency" class="form-label">Transfer currency</label>
             <select id="transferCurrency" class="form-select"   formControlName="transferCurrency">
               <option selected>--select--</option>
-              <option value="1">USD</option>
-              <option value="2">EUR</option>
-              <option value="3">GBP</option>
+              <option *ngFor="let unit of transferCurrencyList" [value]="unit">{{unit}}</option>
             </select>
           </div>
           <div class="col-md-6">

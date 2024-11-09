@@ -4,9 +4,10 @@
             <label for="requestType" class="form-label">Resort Document as</label>
             <select class="form-select" id="resortDocument" aria-label="Select request type"   formControlName="resortDocument">
                 <option value="" selected>-- select --</option>
-                <option value="1">Type One</option>
-                <option value="2">Type Two</option>
-                <option value="3">Type Three</option>
+                <option *ngFor="let unit of resortList" [value]="unit">
+                    {{unit}}
+                </option>
+                
             </select>
         </div>
         <div class="col-12 button-style">

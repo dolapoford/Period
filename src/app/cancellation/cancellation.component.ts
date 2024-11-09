@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SELECT_STO_OPTIONS } from '../constants';
 
 
 @Component({
@@ -9,6 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class CancellationComponent implements OnInit {
   @Input() formGroup!: FormGroup
+  stoOptionList:string[] =SELECT_STO_OPTIONS
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
@@ -36,6 +38,11 @@ export class CancellationComponent implements OnInit {
    
     this.formGroup.addControl(
       'signatureVerified',
+      this.fb.control('')
+    );
+
+    this.formGroup.addControl(
+      'cancelStandingOrder',
       this.fb.control('')
     );
    
