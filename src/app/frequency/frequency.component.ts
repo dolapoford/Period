@@ -12,11 +12,15 @@ export class FrequencyComponent implements OnInit {
   weeklyOptionList: string[] = SELECT_WEEKLY_OPTIONS;
   onTheList: string[] = SELECT_ON_THE;
   ofEveryList: string[] = SELECT_OF_EVERY;
+  isWeeklyVisible: boolean = false;
+  isMonthlyVisible: boolean=false;
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.createForm();
+    this.onFrequencyTypeChange();
+    this.onOnTheSelectChange()
   }
 
   createForm() {
@@ -30,4 +34,40 @@ export class FrequencyComponent implements OnInit {
     }
   }
 
+  onFrequencyTypeChange() {
+    this.formGroup.get('frequencyType')?.valueChanges.subscribe((value: string) => {
+      if (value === 'week') {
+        this.isWeeklyVisible = true;
+        this.isMonthlyVisible = false;
+      } else if (value === 'month') {
+        this.isWeeklyVisible = false;
+        this.isMonthlyVisible = true;
+      } else {
+        this.isWeeklyVisible = false;
+        this.isMonthlyVisible = false;
+      }
+    });
+
+
+    // if(this.onTheSelect?.value=='Last' || this.onTheSelect?.value=='First'){
+    //   this.dateInput?.disable
+    // }
+  }
+
+  onOnTheSelectChange() {
+    this.formGroup.get('onTheSelect')?.valueChanges.subscribe((value: string) => {
+      if (value === 'Last' || value === 'First') {
+        this.dateInput?.disable();
+      } else {
+        this.dateInput?.enable();
+      }
+    });
+  }
+
+  get dateInput() {
+    return this.formGroup?.get('dateInput');
+  }
+  get onTheSelect(){
+    return this.formGroup?.get('onTheSelect');
+  }
 }

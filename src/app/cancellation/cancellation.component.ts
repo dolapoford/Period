@@ -13,6 +13,7 @@ export class CancellationComponent implements OnInit {
   stoOptionList:string[] =SELECT_STO_OPTIONS
   detailVisible:boolean=false
   otherFormControlVisible:boolean=false
+  signatureVisible:boolean=false
   accountData: AccountDetails = {
     debitAccountNumber: '000044556677',
     debitAccountTitle: 'Ms. Eila Fitz',
@@ -90,6 +91,9 @@ export class CancellationComponent implements OnInit {
     }
    
   
+  }
+  showSignature(){
+    this.signatureVisible=true
   }
   get signatureVerified(): FormGroup {
     return this.formGroup.get('signatureVerified') as FormGroup;

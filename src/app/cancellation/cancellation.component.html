@@ -50,8 +50,8 @@
                     <div class="signature-box">
                         <div class="btn-verify ">
                             <div class="form-label">Retrieve Signature </div>
-                            <button type="button" class="btn btn-secondary">Verify Signature</button>
-                            <img src="../../assets/signature.png" alt="">
+                            <button type="button" class="btn btn-secondary" (click)="showSignature()">Verify Signature</button>
+                            <img src="../../assets/signature.png" alt="" *ngIf="signatureVisible">
                         </div>
                         <div class="verified">
                             <label for="signatureVerified" class="form-label">Signature Verified</label>

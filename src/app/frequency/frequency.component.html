@@ -21,7 +21,8 @@
     </div>
   
     <!-- Select Dropdown for Weekly Options -->
-    <div class="select-container mb-3">
+    <div class="select-container mb-3" *ngIf="isWeeklyVisible">
+      <label for="onTheSelect" class="form-label">Option 1, Every</label>
       <select class="form-select" formControlName="optionWeekly">
         <option value="" selected>--select--</option>
         <option *ngFor="let unit of weeklyOptionList" [value]="unit">{{ unit }}</option>
@@ -29,7 +30,7 @@
     </div>
   
     <!-- Additional Selects and Inputs -->
-    <div class="selection-container row">
+    <div class="selection-container row" *ngIf="isMonthlyVisible">
       <div class="col-4">
         <label for="onTheSelect" class="form-label">On the:</label>
         <select id="onTheSelect" class="form-select" formControlName="onTheSelect">
